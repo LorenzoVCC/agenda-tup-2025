@@ -1,0 +1,12 @@
+<a routerLink="/login">Log in</a>
+
+<!-- Recorre el array Contactos -->
+<!---->
+@for (contacto of contactService.contactos; track $index) { 
+    <app-contact-list-item [contacto]="contacto" [index]="$index" />
+} @empty {
+    <p>No hay contactos</p>
+}
+
+
+<button (click)="contactService.createContact()">+</button>

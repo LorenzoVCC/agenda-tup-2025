@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Roboto:wght@300;400;500&display=swap');
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: #7a749d;
+    display: flex;
+    justify-content: center;
+    font-family: "Inter", "Roboto";
+    font-weight: 400; 
+}
+//////////////////////////////////////////
+.mainlogo-container {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7a749d;
+    padding: 10px;
+}
+//////////////////////////////////////////
+.sideLogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 15%;
+}
+    .sideLogo img {
+        height: 18px;
+    }
+
+.mainlogo {
+    align-items: center;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    color: white;
+}
+    .mainlogo img {
+        height: 20px;
+    }
+
+//////////////////////////////////////////
+    
+.search {
+    width: 50%;
+    height: 25px;
+    display: flex;
+    position: absolute;
+    left: 220px;
+}
+    .search-elements {
+        display: flex;
+        width: 90%;
+    }
+    .search button {
+        border: none;
+        height: 100%;
+        background-color: white;
+    }
+    .search img {
+        height: 15px;
+    }
+    #search-bar {
+        width: 90%;
+        border: none;
+        box-shadow: none;
+        outline: none 
+    }
+    #search-bar::placeholder {
+        font-size: 10px;
+    }
+
+.top-menu-header-right {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+    .top-menu-header-right-options {
+        display: flex;
+        gap: 15px;
+    }
+    .top-menu-header-right-options img {
+        height: 18px;
+    }

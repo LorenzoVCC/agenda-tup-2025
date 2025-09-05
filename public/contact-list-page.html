@@ -1,11 +1,10 @@
+<p>contact-list-page works!</p>
 <a routerLink="/login">Log in</a>
 
-<!-- Recorre el array Contactos -->
-<!---->
-@for (contacto of contactService.contactos; track $index) {
-    <app-contact-list-item [contacto]="contacto" [index]="$index" />
+@for (contacto of contactsService.contactos; track $index) {
+<app-contact-list-item [contacto]="contacto" [index]="$index" />
 } @empty {
-    <p>No hay contactos</p>
+<p>No hay contactos</p>
 }
 
 <form (ngSubmit)="createContact(newContactForm.value)" #newContactForm="ngForm">
@@ -16,24 +15,18 @@
       <p class="error">El nombre es obligatorio</p>
     }
   </div>
-
-  <!-- ----------------------------------------- -->
-
-   <div>
+  <div>
     <label for="last-name">Apellido</label>
     <input type="text" name="lastName" id="last-name" ngModel maxlength="50">
   </div>
-
   <div>
     <label for="email">Email</label>
     <input type="text" name="email" id="email" ngModel maxlength="50">
   </div>
-
   <div>
     <label for="address">Direccion</label>
     <input type="text" name="address" id="address" ngModel maxlength="50">
   </div>
-
   <div>
     <label for="number">Telefono*</label>
     <input type="text" name="number" id="number" ngModel maxlength="50" required="true" minlength="4" #phone="ngModel">
@@ -41,22 +34,19 @@
       <p class="error">El telefono es obligatorio y tiene que tener al menos 4 caracteres y no mas de 50</p>
     }
   </div>
-
-   <div>
+  <div>
     <label for="company">Compania</label>
     <input type="text" name="company" id="company" ngModel maxlength="50">
   </div>
-
   <div>
     <label for="description">Descripcion</label>
     <input type="text" name="description" id="description" ngModel>
   </div>
-
   <div>
     <label for="image">Url imagen</label>
     <input type="text" name="image" id="image" ngModel>
   </div>
-    
+  <button [disabled]="newContactForm.invalid">+</button>
 </form>
 
-<button type="submit">+</button>
+<button (click)="crearContactoEjemplo()">Crear contacto ejemplo</button>

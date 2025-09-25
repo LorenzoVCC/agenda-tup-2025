@@ -1,14 +1,10 @@
+<div class="layout">
+  <app-header></app-header>
 
-<div>
-    <app-header>
-    </app-header>
-        <main>
-            <app-sidebar></app-sidebar>
-            <router-outlet></router-outlet>
-        </main>
-
+  <div class="layout-body">
+    <app-sidebar></app-sidebar>
+    <main class="layout-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>
-<nav>
-    <a routerLink="/">Usuarios</a>
-    <a routerLink="/groups">Grupo</a>
-</nav>

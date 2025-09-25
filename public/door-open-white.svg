@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+     fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Door frame -->
+  <path d="M3 21h18"/>
+  <path d="M3 3v18"/>
+  <!-- Open door panel -->
+  <path d="M14 3l-6 2v14l6 2V3z"/>
+  <!-- Door knob -->
+  <circle cx="12" cy="12" r="1"/>
+</svg>

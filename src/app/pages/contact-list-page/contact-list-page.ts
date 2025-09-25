@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ContactListItem } from '../../components/contact-list-item/contact-list-item';
-import { NewContact } from '../../interfaces/contacto';
+//import { Contact, NewContact } from '../../interfaces/contacto';
 import { Auth } from '../../services/auth';
 import { ContactsService } from '../../services/contacts-service';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -15,11 +15,16 @@ import { FormsModule, NgForm } from '@angular/forms';
 
 /////////////////////////////////////////////////////
 
-export class ContactListPage {
-  contactService = inject(ContactsService);
-  authService = inject(Auth);
+// <button [disabled]="newContactForm.invalid">+</button>
+export class ContactListPage implements OnInit {
+  ngOnInit(): void {
+    this.contactsService.getContacts();
+  }
 
-  createContact(form:any) {
+  authServicew = inject(Auth)
+  contactsService = inject(ContactsService)
+
+/*  createContact(form:any) {
     console.log(form)
 
   const newContact:NewContact = {
@@ -29,21 +34,9 @@ export class ContactListPage {
       email: form.email,
       number: form.number,
       company: form.company,
-      description: form.description,
+      //description: form.description,
       image: form.image
     }
-    this.contactService.createContact(newContact)
-}
-crearContactoEjemplo(){
-    this.contactService.createContact({
-      firstName: '',
-      lastName: '',
-      address: '',
-      email: '',
-      number: '',
-      company: '',
-      description: '',
-      image: ''
-    })
+    this.contactsService.createContact(newContact)
   }
-}
+}*/}

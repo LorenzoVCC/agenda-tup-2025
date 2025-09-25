@@ -1,14 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Roboto:wght@300;400;500&display=swap');
+
 .menu-left {
-    background-color: #7a749d;
-    width: 20%;
-    height: 92.3vh;
+  width: 100%;          /* ocupa la columna completa del grid */
+  height: 100%;         /* iguala la altura del área del grid */
+  background-color: #7a749d;
+  padding: 12px;
+  box-sizing: border-box;
+  overflow-y: auto;   
 }
 
 .menu-container {
-    height: 80%;    
+  min-height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 12px;
 }
 
-.button {
-    background-color: red;
-    border-radius: 20px ;
+.first-buttons-container { 
+  display: flex;
+  flex-direction: column; 
+  gap: 5px;
+  font-family: "Inter", "Roboto";
+  font-weight: 400; 
 }
+
+.container-agregar {
+  width: 100%;
+  position: relative;
+  padding-bottom: 30px;
+}
+
+
+#agregar {
+  background-color: #443f61;
+  height: 20px;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  color: #fff;
+  padding-right: 15px;
+  border-radius: 20px;
+  white-space: nowrap;
+  font-size: 10px;
+  letter-spacing: 1px;
+  position: absolute;
+
+}
+  #agregar:hover {
+
+    box-shadow: 1px 2px 5px 2px rgba(0,0,0,0.52);
+    background-color: #695fa9;
+  } 
+
+
+  button {
+    background-color: transparent;
+    border: none;
+    border-radius: 100px;
+  }
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  color: #fff;
+  border-radius: 20px;
+  white-space: nowrap;
+  font-size: 10px;
+  letter-spacing: 1px;
+  background-color: transparent;
+  border: none;
+  border-radius: 100px;
+  transition: .3s ease;
+}
+.button:hover {
+  background-color: #443f61;
+}
+.button img:hover {
+  opacity: 1;
+}
+
+.button img { width: 15px; height: 15px; }
+
+#other-contacts-info {
+
+  justify-content: space-between;
+}
+
+.other-contacts-info-left {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.other-contacts-info-left h3 {
+  position: absolute;
+  top: 2px;
+  left: 23px;
+}
+
+.hover-info {
+  border-radius: 10px;
+
+  transition: .3s;
+}
+.hover-info:hover {
+  box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.86);
+  z-index: 1;
+}
+
+.first-buttons-container-othercontacts-menuleft {
+  display: flex;
+  flex-direction: column;
+}
+
+
+hr {
+  width: 80%;
+  opacity: 0.5;
+}
+
+.menu-left-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-left-bottom h3 {
+  width: 60%;
+  margin-left: 20px;
+  color: white;
+  font-family: "Inter", "Roboto";
+  font-weight: 400; 
+}
+
+.mailbox-container-ubic {
+  position: relative;
+  padding-top: 20px;
+}
+
+.mailbox-container {
+  position: relative;
+  bottom: 30px;
+}
+
+.mailbox-container-title {
+  width: 80%;
+  height: 30px;
+  margin-left: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-family: "Inter", "Roboto";
+  font-weight: 400; 
+  justify-content: space-between;
+
+}
+
+  .mailbox-container-title img {
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+  } 
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logout-btn-container {
+    display: flex;
+    justify-content: right;
+  }
+
+  .logout-logo {
+    width: 20px;
+    background-color: #443f61;
+    border-radius: 90px;
+    padding: 5px;
+    padding-left: 7px;
+  }
+
+  .switch-page-btn {
+    color: white;
+    width: 100%;
+  }
+
+  .btn-for-use {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }

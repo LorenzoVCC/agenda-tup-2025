@@ -7,32 +7,32 @@
         </div>
         </div>
 
-            <h1>Ingresar</h1>
-            <form>
-                <div class="user-credentials">
-                
-                    <div class="user-input">
-                        <div class="input-image">
-                            <img src="/svgpersona.png" alt="">
-                            <input id="nombreUsuario" type="text" placeholder="Usuario">
-                        </div>
+        <h1>Ingresar</h1>
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <div class="user-credentials">
+            
+                <div class="user-input">
+                    <div class="input-image">
+                        <img src="/svgpersona.png" alt="">
+                        <input id="nombreUsuario" type="text" placeholder="Usuario" ngModel #email="ngModel" required="true" name="email">
                     </div>
-                        
-                    <div class="user-input">
-                        <div class="input-image">
-                            <img src="/svgcandado.png" alt="">
-                            <input id="password" type="password" placeholder="Clave">
-                        </div>
-                        <button type="button" class="toggle"><img src="/ojoabierto.png" alt=""></button>
+                </div>
+                    
+                <div class="user-input">
+                    <div class="input-image">
+                        <img src="/svgcandado.png" alt="">
+                        <input id="password" name="password" type="password" ngModel #password="ngModel" required="true" minlength="4" autocomplete="current-password" placeholder="Clave">
                     </div>
-
-                    <a href="" class="forgot-pass">¿Olvidaste la contraseña?</a>
+                    <button type="button" class="toggle"><img src="/ojoabierto.png" alt=""></button>
                 </div>
 
-                <div class="btn-login">
-                    <button>Iniciar sesión</button>
-                    <p>No tenés cuenta? <a routerLink="/register">Registrate</a></p>
-                </div>
-            </form> 
+                <a href="/register" id="forgot-pass">¿Olvidaste la contraseña?</a>
+            </div>
+
+            <div class="btn-login">
+                <button [disabled]="loginForm.invalid">Iniciar sesión</button>
+                <p>No tenés cuenta? <a routerLink="/register">Registrate</a></p>
+            </div>
+        </form> 
     </section>
 </div>

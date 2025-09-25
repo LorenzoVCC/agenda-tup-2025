@@ -1,4 +1,16 @@
-.hola{
-    display: flex;
-    background-color: red;
+.layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-image: url('/bullseye-gradient.png');
+}
+.layout-body {
+  display: grid;
+  grid-template-columns: 220px 1fr;  /* ancho fijo del sidebar */
+  min-height: 0;
+}
+.layout-content {
+  grid-column: 2;
+  padding: 16px;
+  overflow: auto;
 }

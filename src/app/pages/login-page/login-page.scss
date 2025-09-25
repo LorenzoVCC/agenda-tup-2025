@@ -1,19 +1,25 @@
+
+
 .flex-center { /* Div que posiciona el form en el centro */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     min-width: 25%;
+    background-color: #504b6e;
+    margin: 0;
+    background-image: url('/bullseye-gradient.png');
 }
 
 .login-general { /* Section general */
     position: relative;
-    background-color: #42484e;
+    background-color: #24292d;
     width: 25%;
     height: 300px;
+    color: white;
     box-shadow: 
         0 4px 8px rgba(0,0,0,0.6),   
-        0 2px 4px rgba(0,0,0,0.8); 
+        0 -2px 40px rgba(0,0,0,0.8); 
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -61,6 +67,7 @@ h1 {
     align-items: center; /* que los inputs ocupen ancho */
     justify-content: center;
     padding-bottom: 20px;
+    color: white;
 }
 
 .user-credentials a { /* Olvidaste tu contraseña? */
@@ -78,6 +85,9 @@ input, input:focus {
     border: none;
     flex: 1; /* el input crece dentro del contenedor */
     outline: none;
+    color: white;
+    background-color: transparent;
+    background: transparent;
 }
 
 
@@ -118,22 +128,31 @@ input, input:focus {
     align-items: center;
     flex-direction: column;
     gap: 15px;
+    
+}
+
+#forgot-pass {
+    color: white;
+    font-size: 8px;
 }
 
 .btn-login p, a{ /* texto div btn */
-    font-size: 10px;
+    font-size: 8px;
+
 }
 .btn-login p a {
     color: #4580bb;
 }
 
-button {
+.btn-login button {
     height: 35px;
     width: 80%;
-    background-color: #1F2021;
+    background-color: #504b6e;
+    border: 1.5px solid #504b6e;
     color: white;
+    transition: 0.3s ease;
+    font-size: 12px;
 }
-
-.forgot-pass a {
-    background-color: red;
-}
+    .btn-login button:hover {
+        background-color: #7a749d;
+    } 

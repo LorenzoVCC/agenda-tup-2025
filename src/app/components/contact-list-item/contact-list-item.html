@@ -1,6 +1,15 @@
-<p>Contacto Nº {{index() +1}} {{contacto().firstName}}
-    @if(contacto().isFavorite){
-        ⭐
-    }
-    <button (click)="contactService.deleteContact(contacto().id)">Borrar</button>
-</p>
+
+<div class="contact-item-main-structure">
+    <div class="contact-item-left-structure">
+        <img src="/circle-user-outline-white.svg" alt="" class="item-list-img">
+        <p>{{contacto().firstName}}
+            @if(contacto().isFavorite){
+                ⭐
+            }
+        </p>
+    </div>
+    <a [routerLink]="['/contact',contacto().id,'edit']">Editar</a>
+    <!-- Borrar -->
+    <button (click)="contactService.deleteContact(contacto().id)" class="button-delete-item">Borrar</button>
+</div>
+

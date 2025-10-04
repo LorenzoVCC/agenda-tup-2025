@@ -3,8 +3,11 @@
 <br>
 <h1>Contactos</h1>
 <br>
+
 @for (contacto of contactsService.contactos; track $index) {
-    <app-contact-list-item [contacto]="contacto" [index]="$index" />
+    <a [routerLink]="['/contacts', contacto.id]">
+        <app-contact-list-item [contacto]="contacto" [index]="$index"/>
+    </a>
 } @empty {
     <p>No hay contactos.</p>
 }

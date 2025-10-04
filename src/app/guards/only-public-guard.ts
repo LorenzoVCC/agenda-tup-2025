@@ -12,4 +12,4 @@ export const onlyPublicGuard: CanActivateFn = (route, state) => {
     });
   }
   return true
-};
+};  

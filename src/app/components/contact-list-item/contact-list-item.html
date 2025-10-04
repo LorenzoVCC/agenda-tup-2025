@@ -8,8 +8,10 @@
             }
         </p>
     </div>
-    <a [routerLink]="['/contact',contacto().id,'edit']">Editar</a>
+    <div class="btn-container">
+        <a [routerLink]="['/contacts',contacto().id,'edit']" class="button-delete-item">Editar</a>
     <!-- Borrar -->
-    <button (click)="contactService.deleteContact(contacto().id)" class="button-delete-item">Borrar</button>
+        <button (click)="contactService.deleteContact(contacto().id)" class="button-delete-item">Borrar</button>
+    </div>
 </div>
 

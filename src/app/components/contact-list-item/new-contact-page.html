@@ -87,10 +87,7 @@
 
     @if(idContacto())
     {
-      <div class="button-flex">
-        <a routerLink=""><button class="backtolist-btn"><img src="/move-left-white.svg" alt=""></button></a>
-        <button [disabled]="newContactForm.invalid" class="button-add-contact-form">Editar Contacto</button>
-      </div>
+      <button [disabled]="newContactForm.invalid">Editar</button>
     } 
     @else
     {

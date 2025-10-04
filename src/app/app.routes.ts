@@ -6,7 +6,7 @@ import { LoggedLayout } from './layouts/logged-layout/logged-layout';
 import { Register } from './pages/register/register';
 import { onlyPublicGuard } from './guards/only-public-guard';
 import { onlyUserGuard } from './guards/only-user-guard';
-import { newContact} from "./components/new-contact-page/new-contact-page"
+import { newContact } from "./components/new-contact-page/new-contact-page"
 import { GroupsListPage } from './pages/groups-list-page/groups-list-page';
 
 export const routes: Routes = [
@@ -45,7 +45,7 @@ export const routes: Routes = [
                 component: GroupsListPage
             },  
             {
-                path: "contacts/:id",
+                path: "contacts/:idContacto",
                 component: ContactDetailsPage
             },  
         ]

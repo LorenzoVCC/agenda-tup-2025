@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterModule, Router } from '@angular/router';
 import { Auth } from '../../services/auth';
 import { RouterLink, RouterLinkActive } from '@angular/router'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,5 +19,19 @@ export class Sidebar {
     logout(): void {
     this.auth.logout();
     this.router.navigateByUrl('/login');
+  }
+    showLogoutModal() {
+    Swal.fire({
+      title: "Queres salir?",
+      showDenyButton: false,
+      showCancelButton: true,
+      showConfirmButton: true,
+      confirmButtonText: "Salir",
+      denyButtonText: `-`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.auth.logout();
+      }
+    });
   }
 }

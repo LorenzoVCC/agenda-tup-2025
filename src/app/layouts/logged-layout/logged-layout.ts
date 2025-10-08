@@ -4,6 +4,7 @@ import { RouterOutlet, RouterModule } from '@angular/router';
 import { Sidebar } from '../sidebar/sidebar';
 import { Header } from '../header/header';
 import { Auth } from '../../services/auth';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-logged-layout',
@@ -14,5 +15,5 @@ import { Auth } from '../../services/auth';
 })
 
 export class LoggedLayout {
-  
+  authService = inject(Auth)
 }

@@ -12,7 +12,7 @@ import { Contact } from '../../interfaces/contacto';
 })
 
 export class ContactDetailsPage implements OnInit {
-idContacto = input.required<string>();
+  idContacto = input.required<string>();
 
   readonly contactService = inject(ContactsService);
   contacto: Contact | undefined;
@@ -23,9 +23,9 @@ idContacto = input.required<string>();
     if (this.idContacto()) {
 
       this.contacto = this.contactService.contactos.find(contacto => contacto.id.toString() === this.idContacto());
-      if(!this.contacto) this.cargandoContacto = true;
+      if (!this.contacto) this.cargandoContacto = true;
       const res = await this.contactService.GetContactById(this.idContacto());
-      if(res) this.contacto = res;
+      if (res) this.contacto = res;
       this.cargandoContacto = false;
     }
   }
@@ -33,17 +33,18 @@ idContacto = input.required<string>();
   async toogleFavorite() {
     if (this.contacto) {
       const res = await this.contactService.setFavourite(this.contacto.id);
-      if(res) this.contacto.isFavorite = !this.contacto.isFavorite;
+      if (res) this.contacto.isFavorite = !this.contacto.isFavorite;
     }
   }
 
   async deleteContact() {
     if (this.contacto) {
       const res = await this.contactService.deleteContact(this.contacto.id);
-      if(res) this.router.navigate(['/'])
-      }
+      if (res) this.router.navigate(['/'])
     }
   }
+}
 
 
+  
 

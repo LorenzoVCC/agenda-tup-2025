@@ -1,12 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { Contact, NewContact } from '../interfaces/contacto';
 import { Auth } from './auth';
-import { withHashLocation } from '@angular/router';
-import { reportUnhandledError } from 'rxjs/internal/util/reportUnhandledError';
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable({providedIn: 'root'})
 
 export class ContactsService {
   authservice = inject(Auth);
@@ -33,16 +30,16 @@ export class ContactsService {
   }
 
   /** Elimina un contacto segun su ID */
-  async deleteContact(id: number) {
-    const res = await fetch(this.URL_BASE + "/" + id,
+  async deleteContact(id:number){
+    const res = await fetch(this.URL_BASE+"/"+id, 
       {
         method: "DELETE",
         headers: {
-          Authorization: "Bearer " + this.authservice.token,
-        }
+          Authorization: "Bearer "+this.authservice.token,
+        },
       });
-    if (!res.ok) return;
-    this.contactos = this.contactos.filter(c => c.id !== id);
+    if(!res.ok) return;
+    this.contactos = this.contactos.filter(contact => contact.id !== id);
     return true;
   }
 

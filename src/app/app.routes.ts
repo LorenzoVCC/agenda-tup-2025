@@ -8,6 +8,7 @@ import { onlyPublicGuard } from './guards/only-public-guard';
 import { onlyUserGuard } from './guards/only-user-guard';
 import { newContact } from "./components/new-contact-page/new-contact-page"
 import { GroupsListPage } from './pages/groups-list-page/groups-list-page';
+import { Spinner } from './components/spinner/spinner';
 
 export const routes: Routes = [
     {

@@ -1,18 +1,18 @@
 <div class="card">
   <form (ngSubmit)="handleFormSubmission(newContactForm)" #newContactForm="ngForm">
-   
+
     @if(idContacto()){
-      <div class="contact-create-edit-text">
-        <img src="/user-round-pen-stroke-white.svg" alt="">
-        <h2 class="legend-menu">Editar Contacto</h2>
-      </div>
-    } 
-    @else 
+    <div class="contact-create-edit-text">
+      <img src="/user-round-pen-stroke-white.svg" alt="">
+      <h2 class="legend-menu">Editar Contacto</h2>
+    </div>
+    }
+    @else
     {
-      <div class="contact-create-edit-text">
-        <img src="/user-round-plus-stroke-white.svg" alt="">
-        <h2 class="legend-menu">Nuevo contacto</h2>
-      </div>
+    <div class="contact-create-edit-text">
+      <img src="/user-round-plus-stroke-white.svg" alt="">
+      <h2 class="legend-menu">Nuevo contacto</h2>
+    </div>
     }
 
     <!-- //////////////////// -->
@@ -32,7 +32,7 @@
       <label for="last-name">Apellido</label>
       <input type="text" name="lastName" id="last-name" ngModel maxlength="50">
     </div>
- 
+
     <!-- ----------------------------------------- -->
 
     <div class="campo-input">
@@ -77,27 +77,32 @@
       <label for="image">Url imagen</label>
       <input type="text" name="image" id="image" ngModel>
     </div>
-  
+
     <!-- ----------------------------------------- -->
 
-    @if (errorEnBack) 
+    @if (errorEnBack)
     {
-      <p class="error">Error indeterminado, intente nuevamente.</p>
+    <p class="error">Error indeterminado, intente nuevamente.</p>
     }
 
     @if(idContacto())
     {
-      <div class="button-flex">
-        <a routerLink=""><button class="backtolist-btn"><img src="/move-left-white.svg" alt=""></button></a>
-        <button [disabled]="newContactForm.invalid" class="button-add-contact-form">Editar Contacto</button>
-      </div>
-    } 
+    <div class="button-flex">
+      <a routerLink=""><button class="backtolist-btn"><img src="/move-left-white.svg" alt=""></button></a>
+      <button [disabled]="newContactForm.invalid || solicitudABackEnCurso"
+        class="button-add-contact-form">Editar</button>
+    </div>
+    }
     @else
     {
-      <div class="button-flex">
-        <a routerLink=""><button class="backtolist-btn"><img src="/move-left-white.svg" alt=""></button></a>
-        <button [disabled]="newContactForm.invalid" routerLinkActive="router-link-active" class="button-add-contact-form">Agregar Contacto</button>
-      </div>
+    <div class="button-flex">
+      <a routerLink=""><button class="backtolist-btn"><img src="/move-left-white.svg" alt=""></button></a>
+      <button [disabled]="newContactForm.invalid || solicitudABackEnCurso"
+        class="button-add-contact-form">Agregar</button>
+    </div>
+    }
+    @if (solicitudABackEnCurso) {
+      <app-spinner/>
     }
   </form>
 </div>

@@ -18,11 +18,10 @@ export class Sidebar {
 
     logout(): void {
     this.auth.logout();
-    this.router.navigateByUrl('/login');
   }
     showLogoutModal() {
     Swal.fire({
-      title: "Queres salir?",
+      title: "Queres cerrar sesión?",
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,

@@ -5,11 +5,12 @@ import { RouterOutlet, RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Auth } from '../../services/auth';
 import { Contact, NewContact } from '../../interfaces/contacto';
+import { Spinner } from "../spinner/spinner";
 
 @Component({
   selector: 'new-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, Spinner],
   templateUrl: './new-contact-page.html',
   styleUrl: './new-contact-page.scss'
 })
@@ -21,7 +22,9 @@ export class newContact implements OnInit {
   errorEnBack = false;
   idContacto = input<string>();
   contactoBack: Contact | undefined = undefined;
-  form = viewChild<NgForm>("newContactForm")
+  form = viewChild<NgForm>("newContactForm");
+  solicitudABackEnCurso = false;
+
 
   async ngOnInit() {
     if (this.idContacto()) {
@@ -56,6 +59,8 @@ export class newContact implements OnInit {
       company: form.value.company,
       isFavorite: form.value.isFavorite
     }
+
+    this.solicitudABackEnCurso = true;
     //////////////////
     let res;
     if (this.idContacto()) {
@@ -66,6 +71,7 @@ export class newContact implements OnInit {
     else {
       res = await this.contactsService.createContact(nuevoContacto);
     }
+    this.solicitudABackEnCurso = false;
     ///////////////////////
     if (!res) {
       this.errorEnBack = true;

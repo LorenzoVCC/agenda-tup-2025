@@ -2,37 +2,48 @@
     <section class="login-general">
 
         <div class="image-center">
-        <div class="image-border">
-            <img src="/loginsimbologeneral.png" alt="">
-        </div>
+            <div class="image-border">
+                <img src="/loginsimbologeneral.png" alt="">
+            </div>
         </div>
 
         <h1>Ingresar</h1>
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
             <div class="user-credentials">
-            
+
                 <div class="user-input">
                     <div class="input-image">
                         <img src="/svgpersona.png" alt="">
-                        <input id="nombreUsuario" type="text" placeholder="Usuario" ngModel #email="ngModel" required="true" name="email">
+                        <input id="nombreUsuario" type="text" placeholder="Usuario" ngModel #email="ngModel"
+                            required="true" name="email">
                     </div>
                 </div>
-                    
+
                 <div class="user-input">
                     <div class="input-image">
                         <img src="/svgcandado.png" alt="">
-                        <input id="password" name="password" type="password" ngModel #password="ngModel" required="true" minlength="4" autocomplete="current-password" placeholder="Clave">
+                        <input id="password" name="password" type="password" ngModel #password="ngModel" required="true"
+                            minlength="4" autocomplete="current-password" placeholder="Clave">
                     </div>
                     <button type="button" class="toggle"><img src="/ojoabierto.png" alt=""></button>
                 </div>
+
+
 
                 <a href="/register" id="forgot-pass">¿Olvidaste la contraseña?</a>
             </div>
 
             <div class="btn-login">
-                <button [disabled]="loginForm.invalid">Iniciar sesión</button>
+                <button [disabled]="loginForm.invalid || solicitudABackEnCurso">Iniciar sesión</button>
+                @if (errorlogin) {
+                <p class="error">Datos de sesión incorrectos, intente nuevamente.</p>
+                }
+                @if (solicitudABackEnCurso) {
+                    <app-spinner />
+                }
+
                 <p>No tenés cuenta? <a routerLink="/register">Registrate</a></p>
             </div>
-        </form> 
+        </form>
     </section>
 </div>

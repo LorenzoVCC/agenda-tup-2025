@@ -23,10 +23,10 @@
     <div class="details-btn-container">
         @if (contacto?.isFavorite) {
         <p>⭐</p>
-        <button class="button-fav" (click)="toogleFavorite()">Desmarcar favorito</button>
+        <button (click)="toogleFavorite()" class="button-fav">Desmarcar favorito</button>
         }
         @else {
-        <button class="button-fav" (click)="toogleFavorite()">Marcar como favorito</button>
+        <button (click)="toogleFavorite()" class="button-fav">Marcar como favorito</button>
         }
         <br>
         <p>
@@ -35,5 +35,5 @@
         <br>
         <button class="button-fav" (click)="deleteContact()">Eliminar</button>
     </div>
-    
+
 </section>

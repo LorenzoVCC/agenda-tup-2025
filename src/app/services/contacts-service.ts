@@ -3,13 +3,12 @@ import { Contact, NewContact } from '../interfaces/contacto';
 import { Auth } from './auth';
 
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 
 export class ContactsService {
   authservice = inject(Auth);
   readonly URL_BASE = "https://agenda-api.somee.com/api/Contacts";
 
-  /** Lista de contactos en memoria */
   contactos: Contact[] = [];
 
   /** Crea un contacto */
@@ -30,15 +29,15 @@ export class ContactsService {
   }
 
   /** Elimina un contacto segun su ID */
-  async deleteContact(id:number){
-    const res = await fetch(this.URL_BASE+"/"+id, 
+  async deleteContact(id: number) {
+    const res = await fetch(this.URL_BASE + "/" + id,
       {
         method: "DELETE",
         headers: {
-          Authorization: "Bearer "+this.authservice.token,
+          Authorization: "Bearer " + this.authservice.token,
         },
       });
-    if(!res.ok) return;
+    if (!res.ok) return;
     this.contactos = this.contactos.filter(contact => contact.id !== id);
     return true;
   }
@@ -64,8 +63,8 @@ export class ContactsService {
   }
 
   /** Obtiene los contactos del backend */
-  async getContacts() {
-    const res = await fetch('https://agenda-api.somee.com/api/Contacts',
+  async getContacts(search: string = "") {
+    const res = await fetch(this.URL_BASE,
       {
         method: "GET",
         headers: {
@@ -74,8 +73,23 @@ export class ContactsService {
       })
     if (res.ok) {
       const resJson: Contact[] = await res.json()
-      this.contactos = resJson;
+      if (search)
+      {
+        this.contactos = resJson.filter(c => c.firstName.startsWith(search));
+      }
+      else
+      {
+        this.contactos = resJson
+      }
     }
+  }
+
+  async GetById(id: number, userId: Number) {
+    const res = await fetch(`${this.URL_BASE}/${id}?userId=${userId}`, {
+      headers: { Authorization: 'Bearer ' + this.authservice.token }
+    });
+    if (!res.ok) return null;
+    return await res.json();
   }
 
   async GetContactById(id: string | number) {
@@ -98,7 +112,7 @@ export class ContactsService {
       {
         method: "POST",
         headers: {
-          Authorization: "Bearer" + this.authservice.token,
+          Authorization: "Bearer " + this.authservice.token,
         },
       })
     if (!res.ok) return;

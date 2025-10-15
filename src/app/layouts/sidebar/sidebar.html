@@ -2,38 +2,54 @@
   <div class="menu-container">
 
     <div class="first-buttons-container">
-    <div class="container-agregar">
-      <a routerLink="/contacts/new"><button><div id="agregar"><img src="/plus.svg" alt="">Crear Contacto</div></button></a>
-    </div>
-    <br>
+      <div class="container-agregar">
+        <a routerLink="/contacts/new"><button>
+            <div id="agregar"><img src="/plus.svg" alt="">Crear Contacto</div>
+          </button></a>
+      </div>
+      <br>
 
-      <a [routerLink]='["/"]' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><button class="switch-page-btn"><div class="button"><img src="/users.svg" alt="">Contactos</div></button></a>
-      <a [routerLink]='["/groups"]' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><button class="switch-page-btn"><div class="button"><img src="/book-user-white-outline.svg" alt="" style="color: white;">Grupos</div></button></a>
-  
+      <a [routerLink]='["/"]' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><button
+          class="switch-page-btn">
+          <div class="button"><img src="/users.svg" alt="">Contactos</div>
+        </button></a>
+      <a [routerLink]='["/groups"]' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><button
+          class="switch-page-btn">
+          <div class="button"><img src="/book-user-white-outline.svg" alt="" style="color: white;">Grupos</div>
+        </button></a>
+
 
       <div class="first-buttons-container-othercontacts-menuleft">
-        
+
         <button>
           <div class="button" id="other-contacts-info">
 
             <div class="other-contacts-info-left">
               <img src="/contact.svg" alt="">
-              <h3>Otros contactos</h3> </div>
-              <img src="/info.svg" alt="" class="hover-info"></div>
+              <h3>Otros contactos</h3>
+            </div>
+            <img src="/info.svg" alt="" class="hover-info">
+          </div>
         </button>
       </div>
 
     </div>
 
-      <hr>
+    <hr>
 
-      <div class="menu-left-bottom">
-        <h3>Corregir y gestionar</h3>
-        <div class="first-buttons-container">
-          <button><div class="button"><img src="/hammer.svg" alt="">Combinar y Corregir</div></button>
-          <button><div class="button"><img src="/download.svg" alt="">Importar</div></button>
-          <button><div class="button"><img src="/trash-2.svg" alt="">Papelera</div></button> 
-        </div>
+    <div class="menu-left-bottom">
+      <h3>Corregir y gestionar</h3>
+      <div class="first-buttons-container">
+        <button>
+          <div class="button"><img src="/hammer.svg" alt="">Combinar y Corregir</div>
+        </button>
+        <button>
+          <div class="button"><img src="/download.svg" alt="">Importar</div>
+        </button>
+        <button>
+          <div class="button"><img src="/trash-2.svg" alt="">Papelera</div>
+        </button>
+      </div>
     </div>
     <hr>
 
@@ -41,24 +57,23 @@
 
       <div class="mailbox-container">
 
-          <div class="mailbox-container-title">
-            <h3>Etiquetas</h3>
-            <button><img src="/plus.svg" alt="" class="hover-info"></button>
-          </div>
-          <!--  -->
-          <button><div class="button">
-            <img src="/send-horizontal.svg" alt="">Contactos de emergencia
-          </div></button> 
-
+        <div class="mailbox-container-title">
+          <h3>Etiquetas</h3>
+          <button><img src="/plus.svg" alt="" class="hover-info"></button>
         </div>
-      </div>
-    <nav class="header-nav">
-      
-    <div class="logout-btn-container">
-      <button (click)="showLogoutModal()"><img src="/log-out-white.svg" alt="" class="logout-logo"></button>
-    </div>
-    </nav>
-  
+        <!--  -->
+        <button>
+          <div class="button">
+            <img src="/send-horizontal.svg" alt="">Contactos de emergencia
+          </div>
+        </button>
 
+      </div>
+    </div>
+    <nav class="header-nav">
+      <div class="logout-btn-container">
+        <button (click)="showLogoutModal()"><img src="/log-out-white.svg" alt="" class="logout-logo"></button>
+      </div>
+    </nav>
   </div>
 </aside>

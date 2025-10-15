@@ -1,7 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { Contact } from '../../interfaces/contacto';
 import { ContactsService } from '../../services/contacts-service';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Toast } from '../../utils/modals';
 
@@ -16,6 +16,7 @@ export class ContactListItem {
   index = input.required<number>();
   contacto = input.required<Contact>();
   contactService = inject(ContactsService);
+  router = inject(Router);
 
    showDeleteModal(){
     Swal.fire({
@@ -24,9 +25,9 @@ export class ContactListItem {
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
-      confirmButtonColor: "var(--color-error)",
+      confirmButtonColor: "red",
       cancelButtonText: "Cancelar",
-      confirmButtonText: `Borrar definitivamente`
+      confirmButtonText: `Borrar`
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
@@ -39,6 +40,7 @@ export class ContactListItem {
           }
         })
       } 
+      this.router.navigate(["/"]);
     });
   }
 }

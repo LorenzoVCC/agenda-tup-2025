@@ -34,7 +34,10 @@ export class ContactDetailsPage implements OnInit {
     if (this.contacto) {
       const res = await this.contactService.setFavourite(this.contacto.id);
       if (res) this.contacto.isFavorite = !this.contacto.isFavorite;
+
     }
+    console.log(this.contacto!.isFavorite);
+    
   }
 
   async deleteContact() {

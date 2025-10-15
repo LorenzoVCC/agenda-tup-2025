@@ -1,9 +1,9 @@
-import { Component, inject, input, NgModule, OnInit, viewChild } from '@angular/core';
+import { Component, inject, input, OnInit, viewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { ContactsService } from '../../services/contacts-service';
-import { RouterOutlet, RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Auth } from '../../services/auth';
+import { Router, RouterModule } from '@angular/router';
+
+import { ContactsService } from '../../services/contacts-service';
 import { Contact, NewContact } from '../../interfaces/contacto';
 import { Spinner } from "../spinner/spinner";
 
@@ -19,17 +19,20 @@ export class newContact implements OnInit {
 
   contactsService = inject(ContactsService);
   router = inject(Router)
+  
   errorEnBack = false;
-  idContacto = input<string>();
-  contactoBack: Contact | undefined = undefined;
-  form = viewChild<NgForm>("newContactForm");
   solicitudABackEnCurso = false;
 
+  idContacto = input<string>();
+  contactoBack: Contact | undefined = undefined;
+  
+  form = viewChild<NgForm>("newContactForm");
 
   async ngOnInit() {
     if (this.idContacto()) {
-
+      
       const contacto: Contact | null = await this.contactsService.GetContactById(this.idContacto()!);
+      console.log(contacto)
 
       if (contacto) {
         this.contactoBack = contacto;
@@ -39,9 +42,10 @@ export class newContact implements OnInit {
           email: contacto.email,
           firstName: contacto.firstName,
           image: contacto.image,
-          isfav: contacto.isFavorite,
+          // isFavorite: contacto.isFavorite,
           lastName: contacto.lastName,
-          number: contacto.number
+          number: contacto.number,
+          description: contacto.description
         })
       }
     }
@@ -57,7 +61,8 @@ export class newContact implements OnInit {
       image: form.value.image,
       number: form.value.number,
       company: form.value.company,
-      isFavorite: form.value.isFavorite
+      isFavorite: form.value.isFavorite,
+      description: form.value.description
     }
 
     this.solicitudABackEnCurso = true;
@@ -65,7 +70,6 @@ export class newContact implements OnInit {
     let res;
     if (this.idContacto()) {
       res = await this.contactsService.editContact({ ...nuevoContacto, id: this.contactoBack!.id });
-      //... para copiar todas las propiedades de nuevoContacto.
       this.router.navigate(["/"]);
     }
     else {

@@ -14,7 +14,7 @@
             <div class="search">
                 <div class="search-elements">
                     <button><img src="/lupa.svg" alt=""></button>
-                    <input type="search" id="search-bar" placeholder="Buscar">
+                        <input type="search" id="search-bar" placeholder="Buscar" (input)="contactService.getContacts(input.value)" ngModel #input ="ngModel">
                 </div>
             </div>
         </div>
